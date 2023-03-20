@@ -146,9 +146,8 @@ You should be able to interact with your cluster using:
 
 ```bash
 kubectl get nodes
-
-NAME                   STATUS   ROLES           AGE   VERSION
-argocd-control-plane   Ready    control-plane   45s   v1.25.3
+# NAME                   STATUS   ROLES           AGE   VERSION
+# argocd-control-plane   Ready    control-plane   45s   v1.25.3
 ```
 
 If not you can use `kubectl config get-contexts` and switch to your context from the `NAME` column:
