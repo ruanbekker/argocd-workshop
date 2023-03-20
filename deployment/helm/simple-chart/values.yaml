@@ -23,6 +23,9 @@ service:
 ingress:
   enabled: false
 
+container:
+  port: 5000
+
 resources:
   limits:
     cpu: 200m
