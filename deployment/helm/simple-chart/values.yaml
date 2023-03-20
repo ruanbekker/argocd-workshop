@@ -1,12 +1,15 @@
 replicaCount: 1
+nameOverride: ""
+fullnameOverride: ""
 
 image:
   repository: ruanbekker/web-center-name-v2
   pullPolicy: IfNotPresent
   tag: "latest"
 
-nameOverride: ""
-fullnameOverride: ""
+env:
+  vars:
+    APP_TITLE: "Welcome"
 
 serviceAccount:
   create: true

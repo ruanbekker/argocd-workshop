@@ -60,3 +60,13 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Defines environment variables
+*/}}
+{{- define "helpers.environment-variables"}}
+{{- range $key, $val := .Values.env.vars }}
+  - name: {{ $key | upper | quote }}
+    value: {{ $val | quote }}
+{{- end}}
+{{- end }}
