@@ -17,10 +17,10 @@ spec:
           tag: latest
         env:
           vars:
-            APP_TITLE: "Production"
+            APP_TITLE: "Development"
       version: v3
   destination:
-    namespace: engineering
+    namespace: dev
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
