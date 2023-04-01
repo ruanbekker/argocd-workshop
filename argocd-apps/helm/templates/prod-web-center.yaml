@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1apha1
+kind: Application
+metadata:
+  name: web-center
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.agocd.argoproj.io
+spec:
+  project: default
+  source:
+    path: microservice
+    repoURL: https://github.com/ruanbekker/helm-charts.git
+    targetRevision: HEAD
+    helm:
+      values: |
+        images:
+          tag: latest
+        env:
+          vars:
+            APP_TITLE: "Production"
+      version: v3
+  destination:
+    namespace: engineering
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
