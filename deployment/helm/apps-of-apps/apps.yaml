@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1apha1
+kind: Application
+metadata:
+  name: apps-index
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.agocd.argoproj.io
+spec:
+  project: default
+  source:
+    path: deployment/helm/apps-of-apps
+    repoURL: https://github.com/ruanbekker/argocd-workshop.git
+    targetRevision: HEAD
+  destination:
+    namespace: engineering
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
